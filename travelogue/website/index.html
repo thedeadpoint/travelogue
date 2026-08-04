@@ -45,9 +45,24 @@
           <option value="">All</option>
         </select>
       </label>
+      <fieldset class="marker-style">
+        <legend>Marker style</legend>
+        <label>
+          <input type="radio" name="markerStyle" value="standard" checked>
+          <span>Standard pins</span>
+        </label>
+        <label>
+          <input type="radio" name="markerStyle" value="category">
+          <span>Category symbols</span>
+        </label>
+      </fieldset>
       <button id="reset-filters" class="reset-filters" type="button">
         Reset filters
       </button>
+      <div id="category-legend" class="category-legend" hidden>
+        <span class="category-legend-title">Category symbols</span>
+        <div id="category-legend-items" class="category-legend-items"></div>
+      </div>
     </form>
 
     <section class="statistics" aria-label="Travel statistics">

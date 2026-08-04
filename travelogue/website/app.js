@@ -1,5 +1,18 @@
 const EUROPE_CENTER = [50.5, 10];
 const EUROPE_ZOOM = 4;
+const FALLBACK_CATEGORY_SYMBOL = "📍";
+const CATEGORY_SYMBOLS = {
+  "Christmas Market": "🎄",
+  Skiing: "⛷️",
+  "Kid-Focused": "🛝",
+  "Special Occasion": "⭐",
+  City: "🏙️",
+  "Long Weekend": "🧳",
+  "Long Vacation": "🌍",
+  "Day Trip": "☀️",
+  Festival: "🎪",
+  Groceries: "🛒",
+};
 
 const map = L.map("map").setView(EUROPE_CENTER, EUROPE_ZOOM);
 const statusElement = document.querySelector("#status");
@@ -41,6 +54,50 @@ function travelModesFromTrip(trip) {
     .split(";")
     .map((mode) => mode.trim())
     .filter(Boolean);
+}
+
+function categorySymbol(category) {
+  return CATEGORY_SYMBOLS[category] || FALLBACK_CATEGORY_SYMBOL;
+}
+
+function selectedMarkerStyle() {
+  return filterForm.elements.markerStyle.value;
+}
+
+function categoryIcon(category) {
+  const symbol = categorySymbol(category);
+  return L.divIcon({
+    className: "category-marker-wrapper",
+    html: `<span class="category-marker" aria-hidden="true"><span class="category-marker-symbol">${symbol}</span></span>`,
+    iconSize: [38, 38],
+    iconAnchor: [19, 19],
+    popupAnchor: [0, -18],
+  });
+}
+
+function populateCategoryLegend(trips) {
+  const legend = document.querySelector("#category-legend");
+  const items = document.querySelector("#category-legend-items");
+  const categories = [...new Set(trips.map((trip) => trip.category))]
+    .filter(Boolean)
+    .sort((first, second) => first.localeCompare(second));
+
+  items.replaceChildren();
+  for (const category of categories) {
+    const item = document.createElement("span");
+    item.className = "category-legend-item";
+
+    const symbol = document.createElement("span");
+    symbol.className = "category-legend-symbol";
+    symbol.textContent = categorySymbol(category);
+
+    const label = document.createElement("span");
+    label.textContent = category;
+    item.append(symbol, label);
+    items.append(item);
+  }
+
+  legend.hidden = selectedMarkerStyle() !== "category";
 }
 
 function addOptions(select, values) {
@@ -176,7 +233,11 @@ function addTripStops(trips) {
       }
 
       const coordinates = [stop.latitude, stop.longitude];
-      const marker = L.marker(coordinates).addTo(markerLayer);
+      const markerOptions =
+        selectedMarkerStyle() === "category"
+          ? { icon: categoryIcon(trip.category) }
+          : undefined;
+      const marker = L.marker(coordinates, markerOptions).addTo(markerLayer);
       addPopupContent(marker, trip, stop);
       markerBounds.push(coordinates);
     }
@@ -194,6 +255,7 @@ function addTripStops(trips) {
 function renderFilteredTrips() {
   const filteredTrips = allTrips.filter(tripMatchesFilters);
   updateStatistics(filteredTrips);
+  populateCategoryLegend(filteredTrips);
   addTripStops(filteredTrips);
 }
 
@@ -215,7 +277,10 @@ async function loadTrips() {
 
 filterForm.addEventListener("change", renderFilteredTrips);
 document.querySelector("#reset-filters").addEventListener("click", () => {
-  filterForm.reset();
+  filters.year.value = "";
+  filters.country.value = "";
+  filters.category.value = "";
+  filters.travelMode.value = "";
   renderFilteredTrips();
 });
 
