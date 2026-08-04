@@ -14,11 +14,64 @@
   <body>
     <header class="site-header">
       <div>
-        <p class="eyebrow">Version 0.1</p>
+        <p class="eyebrow">Version 0.2</p>
         <h1>Travel Atlas</h1>
       </div>
       <p id="status" class="status" aria-live="polite">Loading trips…</p>
     </header>
+
+    <form id="filters" class="filters" aria-label="Map filters">
+      <label class="filter-field">
+        <span>Year</span>
+        <select id="year-filter" name="year">
+          <option value="">All</option>
+        </select>
+      </label>
+      <label class="filter-field">
+        <span>Country</span>
+        <select id="country-filter" name="country">
+          <option value="">All</option>
+        </select>
+      </label>
+      <label class="filter-field">
+        <span>Category</span>
+        <select id="category-filter" name="category">
+          <option value="">All</option>
+        </select>
+      </label>
+      <label class="filter-field">
+        <span>Travel mode</span>
+        <select id="travel-mode-filter" name="travelMode">
+          <option value="">All</option>
+        </select>
+      </label>
+      <button id="reset-filters" class="reset-filters" type="button">
+        Reset filters
+      </button>
+    </form>
+
+    <section class="statistics" aria-label="Travel statistics">
+      <div class="statistic">
+        <span id="trips-total" class="statistic-value">—</span>
+        <span class="statistic-label">Trips</span>
+      </div>
+      <div class="statistic">
+        <span id="countries-total" class="statistic-value">—</span>
+        <span class="statistic-label">Countries</span>
+      </div>
+      <div class="statistic">
+        <span id="stops-total" class="statistic-value">—</span>
+        <span class="statistic-label">Stops</span>
+      </div>
+      <div class="statistic">
+        <span id="travel-days-total" class="statistic-value">—</span>
+        <span class="statistic-label">Travel days</span>
+      </div>
+      <div class="statistic">
+        <span id="borders-total" class="statistic-value">—</span>
+        <span class="statistic-label">Borders crossed</span>
+      </div>
+    </section>
 
     <main>
       <div id="map" aria-label="Interactive map of trip stops"></div>

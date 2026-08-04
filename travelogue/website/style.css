@@ -17,8 +17,97 @@ body {
 
 body {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto auto 1fr;
   min-height: 100%;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(8rem, 1fr)) auto;
+  align-items: end;
+  gap: 0.75rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  background: #f4f1e8;
+  border-bottom: 1px solid #d8d2c2;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: #66746c;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.filter-field select,
+.reset-filters {
+  min-height: 2.5rem;
+  border: 1px solid #c9c2b2;
+  border-radius: 0.35rem;
+  font: inherit;
+}
+
+.filter-field select {
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 0.65rem;
+  color: #17251e;
+  background: #fffdf7;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.reset-filters {
+  padding: 0.5rem 1rem;
+  color: #fffdf7;
+  background: #304a3d;
+  cursor: pointer;
+}
+
+.reset-filters:hover {
+  background: #22382e;
+}
+
+.filter-field select:focus-visible,
+.reset-filters:focus-visible {
+  outline: 3px solid #9cb8a8;
+  outline-offset: 2px;
+}
+
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  background: #fffdf7;
+  border-bottom: 1px solid #d8d2c2;
+}
+
+.statistic {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.9rem clamp(0.5rem, 2vw, 1.5rem);
+  border-left: 1px solid #e5e0d4;
+}
+
+.statistic:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.statistic-value {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  line-height: 1;
+}
+
+.statistic-label {
+  color: #66746c;
+  font-size: 0.75rem;
 }
 
 .site-header {
@@ -100,5 +189,28 @@ main,
 
   .status {
     text-align: left;
+  }
+
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reset-filters {
+    grid-column: 1 / -1;
+  }
+
+  .statistics {
+    grid-template-columns: repeat(5, minmax(5.5rem, 1fr));
+    overflow-x: auto;
+  }
+}
+
+@media (min-width: 36.01rem) and (max-width: 60rem) {
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reset-filters {
+    grid-column: 1 / -1;
   }
 }
