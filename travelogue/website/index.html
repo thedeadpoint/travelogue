@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An interactive map of personal travels.">
+    <title>Travel Atlas</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <p class="eyebrow">Version 0.1</p>
+        <h1>Travel Atlas</h1>
+      </div>
+      <p id="status" class="status" aria-live="polite">Loading trips…</p>
+    </header>
+
+    <main>
+      <div id="map" aria-label="Interactive map of trip stops"></div>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>

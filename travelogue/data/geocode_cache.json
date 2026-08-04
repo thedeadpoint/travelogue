@@ -1,0 +1,226 @@
+{
+  "Alpe di Siusi, Italy": {
+    "latitude": 46.531056,
+    "longitude": 11.6247091
+  },
+  "Annecy, France": {
+    "latitude": 45.8992348,
+    "longitude": 6.1288847
+  },
+  "Biberwier, Austria": {
+    "latitude": 47.3823667,
+    "longitude": 10.8915055
+  },
+  "Bol, Croatia": {
+    "latitude": 43.2605186,
+    "longitude": 16.6520192
+  },
+  "Brand, Austria": {
+    "latitude": 47.104245,
+    "longitude": 9.7378763
+  },
+  "Brugelette, Belgium": {
+    "latitude": 50.6016956,
+    "longitude": 3.8647979
+  },
+  "Bruges, Belgium": {
+    "latitude": 51.2085526,
+    "longitude": 3.226772
+  },
+  "Colfosco, Italy": {
+    "latitude": 46.5543844,
+    "longitude": 11.8548454
+  },
+  "Colmar, France": {
+    "latitude": 48.0777517,
+    "longitude": 7.3579641
+  },
+  "Cologne, Germany": {
+    "latitude": 50.938361,
+    "longitude": 6.959974
+  },
+  "Dinant, Belgium": {
+    "latitude": 50.2591813,
+    "longitude": 4.9130588
+  },
+  "Eguisheim, France": {
+    "latitude": 48.0447968,
+    "longitude": 7.3079618
+  },
+  "Ehrwald, Austria": {
+    "latitude": 47.3986534,
+    "longitude": 10.9205046
+  },
+  "Feldberg, Germany": {
+    "latitude": 47.8620963,
+    "longitude": 8.1019449
+  },
+  "Forbach, France": {
+    "latitude": 49.1862822,
+    "longitude": 6.8958562
+  },
+  "Gerardmer, France": {
+    "latitude": 48.0705772,
+    "longitude": 6.8776965
+  },
+  "Gstaad, Switzerland": {
+    "latitude": 46.4721619,
+    "longitude": 7.288748
+  },
+  "Gutach, Germany": {
+    "latitude": 48.2487016,
+    "longitude": 8.2116631
+  },
+  "Jungholz, Austria": {
+    "latitude": 47.5708918,
+    "longitude": 10.4529902
+  },
+  "Keukenhof, Netherlands": {
+    "latitude": 52.2698728,
+    "longitude": 4.5472566
+  },
+  "Krakow, Poland": {
+    "latitude": 50.0469432,
+    "longitude": 19.9971534
+  },
+  "La Bresse, France": {
+    "latitude": 48.0066282,
+    "longitude": 6.8766915
+  },
+  "Lake Bled, Slovenia": {
+    "latitude": 46.3639132,
+    "longitude": 14.0938069
+  },
+  "Lake Bohinj, Slovenia": {
+    "latitude": 46.2822654,
+    "longitude": 13.8645306
+  },
+  "Lindau, Germany": {
+    "latitude": 47.5728668,
+    "longitude": 9.6961919
+  },
+  "Ljubljana, Slovenia": {
+    "latitude": 46.0500268,
+    "longitude": 14.5069289
+  },
+  "Ludwigsburg, Germany": {
+    "latitude": 48.8953937,
+    "longitude": 9.1895147
+  },
+  "Luxembourg City, Luxembourg": {
+    "latitude": 49.601051,
+    "longitude": 6.0639946
+  },
+  "Metz, France": {
+    "latitude": 49.1196964,
+    "longitude": 6.1763552
+  },
+  "Milan, Italy": {
+    "latitude": 45.4641943,
+    "longitude": 9.1896346
+  },
+  "Neuschwanstein Castle, Germany": {
+    "latitude": 47.5575522,
+    "longitude": 10.7496959
+  },
+  "Paris, France": {
+    "latitude": 48.8534951,
+    "longitude": 2.3483915
+  },
+  "Pontarlier, France": {
+    "latitude": 46.9040348,
+    "longitude": 6.3546345
+  },
+  "Porto, Portugal": {
+    "latitude": 41.1502195,
+    "longitude": -8.6103497
+  },
+  "Preikestolen, Norway": {
+    "latitude": 58.9868297,
+    "longitude": 6.1889721
+  },
+  "Ravennaschlucht, Germany": {
+    "latitude": 47.9187742,
+    "longitude": 8.0801234
+  },
+  "Remerschen, Luxembourg": {
+    "latitude": 49.4885953,
+    "longitude": 6.3518205
+  },
+  "Riga, Latvia": {
+    "latitude": 56.9493977,
+    "longitude": 24.1051846
+  },
+  "Riquewihr, France": {
+    "latitude": 48.1660766,
+    "longitude": 7.298014
+  },
+  "Saint-Maurice-sur-Moselle, France": {
+    "latitude": 47.8588336,
+    "longitude": 6.8244935
+  },
+  "Schwetzingen, Germany": {
+    "latitude": 49.3832919,
+    "longitude": 8.5735135
+  },
+  "Sevelen, Switzerland": {
+    "latitude": 47.1206239,
+    "longitude": 9.486921
+  },
+  "Stavanger, Norway": {
+    "latitude": 58.9699675,
+    "longitude": 5.7318101
+  },
+  "Strasbourg, France": {
+    "latitude": 48.584614,
+    "longitude": 7.7507127
+  },
+  "Tallinn, Estonia": {
+    "latitude": 59.437242,
+    "longitude": 24.7572693
+  },
+  "Tesero, Italy": {
+    "latitude": 46.2780329,
+    "longitude": 11.5165038
+  },
+  "Vaduz, Liechtenstein": {
+    "latitude": 47.1392862,
+    "longitude": 9.5227962
+  },
+  "Valencia, Spain": {
+    "latitude": 39.4697065,
+    "longitude": -0.3763353
+  },
+  "Versailles, France": {
+    "latitude": 48.8035403,
+    "longitude": 2.1266886
+  },
+  "Vevey, Switzerland": {
+    "latitude": 46.4602978,
+    "longitude": 6.8418655
+  },
+  "Vilnius, Lithuania": {
+    "latitude": 54.6870458,
+    "longitude": 25.2829111
+  },
+  "Wissembourg, France": {
+    "latitude": 49.0365935,
+    "longitude": 7.9445109
+  },
+  "Zakopane, Poland": {
+    "latitude": 49.2969114,
+    "longitude": 19.9504753
+  },
+  "Zandvoort, Netherlands": {
+    "latitude": 52.3595223,
+    "longitude": 4.5350259
+  },
+  "Zugspitze, Germany": {
+    "latitude": 47.421215,
+    "longitude": 10.986297
+  },
+  "Zurich, Switzerland": {
+    "latitude": 47.3744489,
+    "longitude": 8.5410422
+  }
+}
