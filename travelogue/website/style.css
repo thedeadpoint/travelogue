@@ -253,6 +253,28 @@ main,
   border-bottom: 1px solid #e5e0d4;
 }
 
+.trips-sidebar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.clear-trip-selection {
+  padding: 0.35rem 0.5rem;
+  color: #8b2e2e;
+  background: transparent;
+  border: 0;
+  border-radius: 0.25rem;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.clear-trip-selection:hover {
+  background: #f6e7e4;
+}
+
 .trips-sidebar-header h2 {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
@@ -281,7 +303,8 @@ main,
 }
 
 .trips-sidebar.is-collapsed .trips-sidebar-header h2,
-.trips-sidebar.is-collapsed .trips-list {
+.trips-sidebar.is-collapsed .trips-list,
+.trips-sidebar.is-collapsed .clear-trip-selection {
   display: none;
 }
 
@@ -290,6 +313,7 @@ main,
 }
 
 .trips-sidebar-toggle:focus-visible,
+.clear-trip-selection:focus-visible,
 .trip-list-button:focus-visible {
   outline: 3px solid #9cb8a8;
   outline-offset: -3px;
@@ -321,6 +345,11 @@ main,
 
 .trip-list-button:hover {
   background: #f4f1e8;
+}
+
+.trip-list-button.is-selected {
+  background: #f6e7e4;
+  box-shadow: inset 3px 0 #b43c32;
 }
 
 .trip-list-button:disabled {
@@ -408,6 +437,21 @@ main,
 .category-marker-symbol {
   display: block;
   transform: rotate(45deg);
+}
+
+.selected-trip-marker {
+  color: #fff;
+  background: #c83f35;
+  border-color: #8b2e2e;
+  box-shadow: 0 2px 9px rgb(139 46 46 / 45%);
+}
+
+.selected-marker-dot {
+  display: block;
+  width: 0.65rem;
+  height: 0.65rem;
+  background: #fff;
+  border-radius: 50%;
 }
 
 @media (max-width: 36rem) {

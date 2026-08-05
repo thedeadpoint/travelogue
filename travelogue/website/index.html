@@ -92,16 +92,21 @@
       <aside id="trips-sidebar" class="trips-sidebar" aria-labelledby="trips-heading">
         <div class="trips-sidebar-header">
           <h2 id="trips-heading">Trips</h2>
-          <button
-            id="trips-sidebar-toggle"
-            class="trips-sidebar-toggle"
-            type="button"
-            aria-controls="trips-list"
-            aria-expanded="true"
-            aria-label="Collapse trips sidebar"
-          >
-            <span aria-hidden="true">‹</span>
-          </button>
+          <div class="trips-sidebar-actions">
+            <button id="clear-trip-selection" class="clear-trip-selection" type="button" hidden>
+              Clear selection
+            </button>
+            <button
+              id="trips-sidebar-toggle"
+              class="trips-sidebar-toggle"
+              type="button"
+              aria-controls="trips-list"
+              aria-expanded="true"
+              aria-label="Collapse trips sidebar"
+            >
+              <span aria-hidden="true">‹</span>
+            </button>
+          </div>
         </div>
         <ol id="trips-list" class="trips-list"></ol>
       </aside>

@@ -1,5 +1,6 @@
 const EUROPE_CENTER = [50.5, 10];
 const EUROPE_ZOOM = 4;
+const SELECTED_TRIP_MAX_ZOOM = 8;
 const FALLBACK_CATEGORY_SYMBOL = "📍";
 const CATEGORY_SYMBOLS = {
   "Christmas Market": "🎄",
@@ -21,6 +22,9 @@ const filterForm = document.querySelector("#filters");
 const tripsSidebar = document.querySelector("#trips-sidebar");
 const tripsSidebarToggle = document.querySelector("#trips-sidebar-toggle");
 const tripsList = document.querySelector("#trips-list");
+const clearTripSelectionButton = document.querySelector(
+  "#clear-trip-selection",
+);
 const filters = {
   year: document.querySelector("#year-filter"),
   country: document.querySelector("#country-filter"),
@@ -28,7 +32,9 @@ const filters = {
   travelMode: document.querySelector("#travel-mode-filter"),
 };
 let allTrips = [];
-let firstMarkerByTrip = new Map();
+let tripMarkerGroups = new Map();
+let tripListButtonsById = new Map();
+let selectedTripId = null;
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
@@ -86,6 +92,21 @@ function categoryIcon(category) {
   return L.divIcon({
     className: "category-marker-wrapper",
     html: `<span class="category-marker" aria-hidden="true"><span class="category-marker-symbol">${symbol}</span></span>`,
+    iconSize: [38, 38],
+    iconAnchor: [19, 19],
+    popupAnchor: [0, -18],
+  });
+}
+
+function selectedTripIcon(category) {
+  const content =
+    selectedMarkerStyle() === "category"
+      ? `<span class="category-marker-symbol">${categorySymbol(category)}</span>`
+      : '<span class="selected-marker-dot"></span>';
+
+  return L.divIcon({
+    className: "category-marker-wrapper",
+    html: `<span class="category-marker selected-trip-marker" aria-hidden="true">${content}</span>`,
     iconSize: [38, 38],
     iconAnchor: [19, 19],
     popupAnchor: [0, -18],
@@ -236,16 +257,90 @@ function addPopupContent(marker, trip, stop) {
   marker.bindPopup(popup);
 }
 
-function openTripOnMap(trip) {
-  const marker = firstMarkerByTrip.get(trip.trip_id);
-  if (!marker) {
+function setTripGroupSelected(group, selected) {
+  const icon = selected ? group.selectedIcon : group.defaultIcon;
+
+  for (const marker of group.markers) {
+    marker.setIcon(icon);
+    marker.setOpacity(1);
+  }
+}
+
+function updateTripButtonSelection(tripId, selected) {
+  const button = tripListButtonsById.get(tripId);
+  if (!button) {
     return;
   }
 
-  const coordinates = marker.getLatLng();
-  const targetZoom = Math.max(map.getZoom(), 8);
-  map.flyTo(coordinates, targetZoom, { duration: 0.65 });
-  marker.openPopup();
+  button.classList.toggle("is-selected", selected);
+  button.setAttribute("aria-pressed", String(selected));
+}
+
+function clearTripSelection() {
+  if (!selectedTripId) {
+    return;
+  }
+
+  const selectedGroup = tripMarkerGroups.get(selectedTripId);
+  if (selectedGroup) {
+    setTripGroupSelected(selectedGroup, false);
+  }
+
+  updateTripButtonSelection(selectedTripId, false);
+  selectedTripId = null;
+  clearTripSelectionButton.hidden = true;
+}
+
+function selectTrip(tripId) {
+  if (selectedTripId === tripId) {
+    clearTripSelection();
+    return;
+  }
+
+  const nextGroup = tripMarkerGroups.get(tripId);
+  if (!nextGroup?.markers.length) {
+    return;
+  }
+
+  if (selectedTripId) {
+    const previousGroup = tripMarkerGroups.get(selectedTripId);
+    if (previousGroup) {
+      setTripGroupSelected(previousGroup, false);
+    }
+    updateTripButtonSelection(selectedTripId, false);
+  }
+
+  selectedTripId = tripId;
+  setTripGroupSelected(nextGroup, true);
+  updateTripButtonSelection(tripId, true);
+  clearTripSelectionButton.hidden = false;
+
+  const bounds = L.latLngBounds(
+    nextGroup.markers.map((marker) => marker.getLatLng()),
+  );
+  const sidebarOverlaysMap = window.matchMedia("(max-width: 36rem)").matches;
+  const sidebarPadding =
+    sidebarOverlaysMap && !tripsSidebar.classList.contains("is-collapsed")
+      ? tripsSidebar.getBoundingClientRect().width + 30
+      : 50;
+
+  nextGroup.markers[0].openPopup();
+  map.fitBounds(bounds, {
+    paddingTopLeft: [sidebarPadding, 50],
+    paddingBottomRight: [50, 50],
+    maxZoom: SELECTED_TRIP_MAX_ZOOM,
+  });
+}
+
+function restoreSelectionAfterRender() {
+  if (!selectedTripId || !tripMarkerGroups.has(selectedTripId)) {
+    selectedTripId = null;
+    clearTripSelectionButton.hidden = true;
+    return;
+  }
+
+  setTripGroupSelected(tripMarkerGroups.get(selectedTripId), true);
+  clearTripSelectionButton.hidden = false;
 }
 
 function renderTripsSidebar(trips) {
@@ -254,6 +349,7 @@ function renderTripsSidebar(trips) {
   );
 
   tripsList.replaceChildren();
+  tripListButtonsById = new Map();
   for (const trip of chronologicalTrips) {
     const item = document.createElement("li");
     const button = document.createElement("button");
@@ -264,8 +360,11 @@ function renderTripsSidebar(trips) {
 
     button.className = "trip-list-button";
     button.type = "button";
-    button.disabled = !firstMarkerByTrip.has(trip.trip_id);
-    button.addEventListener("click", () => openTripOnMap(trip));
+    button.disabled = !tripMarkerGroups.has(trip.trip_id);
+    button.setAttribute("aria-pressed", String(trip.trip_id === selectedTripId));
+    button.classList.toggle("is-selected", trip.trip_id === selectedTripId);
+    button.addEventListener("click", () => selectTrip(trip.trip_id));
+    tripListButtonsById.set(trip.trip_id, button);
 
     date.className = "trip-list-date";
     date.textContent = tripMonthYear(trip.start_date);
@@ -288,9 +387,20 @@ function renderTripsSidebar(trips) {
 function addTripStops(trips) {
   const markerBounds = [];
   markerLayer.clearLayers();
-  firstMarkerByTrip = new Map();
+  tripMarkerGroups = new Map();
 
   for (const trip of trips) {
+    const defaultIcon =
+      selectedMarkerStyle() === "category"
+        ? categoryIcon(trip.category)
+        : new L.Icon.Default();
+    const group = {
+      trip,
+      markers: [],
+      defaultIcon,
+      selectedIcon: selectedTripIcon(trip.category),
+    };
+
     for (const stop of trip.stops) {
       if (
         typeof stop.latitude !== "number" ||
@@ -300,16 +410,17 @@ function addTripStops(trips) {
       }
 
       const coordinates = [stop.latitude, stop.longitude];
-      const markerOptions =
-        selectedMarkerStyle() === "category"
-          ? { icon: categoryIcon(trip.category) }
-          : undefined;
-      const marker = L.marker(coordinates, markerOptions).addTo(markerLayer);
+      const marker = L.marker(coordinates, { icon: defaultIcon }).addTo(
+        markerLayer,
+      );
+      marker.on("click", () => selectTrip(trip.trip_id));
       addPopupContent(marker, trip, stop);
-      if (!firstMarkerByTrip.has(trip.trip_id)) {
-        firstMarkerByTrip.set(trip.trip_id, marker);
-      }
+      group.markers.push(marker);
       markerBounds.push(coordinates);
+    }
+
+    if (group.markers.length) {
+      tripMarkerGroups.set(trip.trip_id, group);
     }
   }
 
@@ -318,6 +429,8 @@ function addTripStops(trips) {
   } else {
     map.setView(EUROPE_CENTER, EUROPE_ZOOM);
   }
+
+  restoreSelectionAfterRender();
 
   statusElement.textContent = "Map loaded.";
 }
@@ -369,6 +482,7 @@ document.querySelector("#reset-filters").addEventListener("click", () => {
 tripsSidebarToggle.addEventListener("click", () => {
   setTripsSidebarCollapsed(!tripsSidebar.classList.contains("is-collapsed"));
 });
+clearTripSelectionButton.addEventListener("click", clearTripSelection);
 
 if (window.matchMedia("(max-width: 36rem)").matches) {
   setTripsSidebarCollapsed(true);
