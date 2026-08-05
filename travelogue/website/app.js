@@ -18,6 +18,9 @@ const map = L.map("map").setView(EUROPE_CENTER, EUROPE_ZOOM);
 const statusElement = document.querySelector("#status");
 const markerLayer = L.layerGroup().addTo(map);
 const filterForm = document.querySelector("#filters");
+const tripsSidebar = document.querySelector("#trips-sidebar");
+const tripsSidebarToggle = document.querySelector("#trips-sidebar-toggle");
+const tripsList = document.querySelector("#trips-list");
 const filters = {
   year: document.querySelector("#year-filter"),
   country: document.querySelector("#country-filter"),
@@ -25,6 +28,7 @@ const filters = {
   travelMode: document.querySelector("#travel-mode-filter"),
 };
 let allTrips = [];
+let firstMarkerByTrip = new Map();
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
@@ -58,6 +62,19 @@ function travelModesFromTrip(trip) {
 
 function categorySymbol(category) {
   return CATEGORY_SYMBOLS[category] || FALLBACK_CATEGORY_SYMBOL;
+}
+
+function tripMonthYear(startDate) {
+  const date = new Date(`${startDate}T00:00:00Z`);
+  if (Number.isNaN(date.getTime())) {
+    return "Date unknown";
+  }
+
+  return new Intl.DateTimeFormat(undefined, {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(date);
 }
 
 function selectedMarkerStyle() {
@@ -219,9 +236,59 @@ function addPopupContent(marker, trip, stop) {
   marker.bindPopup(popup);
 }
 
+function openTripOnMap(trip) {
+  const marker = firstMarkerByTrip.get(trip.trip_id);
+  if (!marker) {
+    return;
+  }
+
+  const coordinates = marker.getLatLng();
+  const targetZoom = Math.max(map.getZoom(), 8);
+  map.flyTo(coordinates, targetZoom, { duration: 0.65 });
+  marker.openPopup();
+}
+
+function renderTripsSidebar(trips) {
+  const chronologicalTrips = [...trips].sort((first, second) =>
+    first.start_date.localeCompare(second.start_date),
+  );
+
+  tripsList.replaceChildren();
+  for (const trip of chronologicalTrips) {
+    const item = document.createElement("li");
+    const button = document.createElement("button");
+    const date = document.createElement("span");
+    const details = document.createElement("span");
+    const icon = document.createElement("span");
+    const title = document.createElement("span");
+
+    button.className = "trip-list-button";
+    button.type = "button";
+    button.disabled = !firstMarkerByTrip.has(trip.trip_id);
+    button.addEventListener("click", () => openTripOnMap(trip));
+
+    date.className = "trip-list-date";
+    date.textContent = tripMonthYear(trip.start_date);
+
+    details.className = "trip-list-details";
+    icon.className = "trip-list-icon";
+    icon.textContent = categorySymbol(trip.category);
+    icon.setAttribute("aria-label", trip.category || "Uncategorized");
+    icon.title = trip.category || "Uncategorized";
+    title.className = "trip-list-title";
+    title.textContent = trip.title;
+
+    details.append(icon, title);
+    button.append(date, details);
+    item.append(button);
+    tripsList.append(item);
+  }
+}
+
 function addTripStops(trips) {
   const markerBounds = [];
   markerLayer.clearLayers();
+  firstMarkerByTrip = new Map();
 
   for (const trip of trips) {
     for (const stop of trip.stops) {
@@ -239,6 +306,9 @@ function addTripStops(trips) {
           : undefined;
       const marker = L.marker(coordinates, markerOptions).addTo(markerLayer);
       addPopupContent(marker, trip, stop);
+      if (!firstMarkerByTrip.has(trip.trip_id)) {
+        firstMarkerByTrip.set(trip.trip_id, marker);
+      }
       markerBounds.push(coordinates);
     }
   }
@@ -257,6 +327,19 @@ function renderFilteredTrips() {
   updateStatistics(filteredTrips);
   populateCategoryLegend(filteredTrips);
   addTripStops(filteredTrips);
+  renderTripsSidebar(filteredTrips);
+}
+
+function setTripsSidebarCollapsed(collapsed) {
+  tripsSidebar.classList.toggle("is-collapsed", collapsed);
+  tripsSidebar.parentElement.classList.toggle("sidebar-collapsed", collapsed);
+  tripsSidebarToggle.setAttribute("aria-expanded", String(!collapsed));
+  tripsSidebarToggle.setAttribute(
+    "aria-label",
+    collapsed ? "Expand trips sidebar" : "Collapse trips sidebar",
+  );
+  tripsSidebarToggle.querySelector("span").textContent = collapsed ? "›" : "‹";
+  window.setTimeout(() => map.invalidateSize(), 220);
 }
 
 async function loadTrips() {
@@ -283,5 +366,12 @@ document.querySelector("#reset-filters").addEventListener("click", () => {
   filters.travelMode.value = "";
   renderFilteredTrips();
 });
+tripsSidebarToggle.addEventListener("click", () => {
+  setTripsSidebarCollapsed(!tripsSidebar.classList.contains("is-collapsed"));
+});
+
+if (window.matchMedia("(max-width: 36rem)").matches) {
+  setTripsSidebarCollapsed(true);
+}
 
 loadTrips();
