@@ -293,7 +293,6 @@ function clearTripSelection() {
 
 function selectTrip(tripId) {
   if (selectedTripId === tripId) {
-    clearTripSelection();
     return;
   }
 
@@ -332,6 +331,15 @@ function selectTrip(tripId) {
   });
 }
 
+function toggleTripSelection(tripId) {
+  if (selectedTripId === tripId) {
+    clearTripSelection();
+    return;
+  }
+
+  selectTrip(tripId);
+}
+
 function restoreSelectionAfterRender() {
   if (!selectedTripId || !tripMarkerGroups.has(selectedTripId)) {
     selectedTripId = null;
@@ -363,7 +371,9 @@ function renderTripsSidebar(trips) {
     button.disabled = !tripMarkerGroups.has(trip.trip_id);
     button.setAttribute("aria-pressed", String(trip.trip_id === selectedTripId));
     button.classList.toggle("is-selected", trip.trip_id === selectedTripId);
-    button.addEventListener("click", () => selectTrip(trip.trip_id));
+    button.addEventListener("click", () =>
+      toggleTripSelection(trip.trip_id),
+    );
     tripListButtonsById.set(trip.trip_id, button);
 
     date.className = "trip-list-date";
