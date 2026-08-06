@@ -22,6 +22,7 @@ const filterForm = document.querySelector("#filters");
 const tripsSidebar = document.querySelector("#trips-sidebar");
 const tripsSidebarToggle = document.querySelector("#trips-sidebar-toggle");
 const tripsList = document.querySelector("#trips-list");
+const journeyTimeline = document.querySelector("#journey-timeline");
 const clearTripSelectionButton = document.querySelector(
   "#clear-trip-selection",
 );
@@ -79,6 +80,18 @@ function tripMonthYear(startDate) {
   return new Intl.DateTimeFormat(undefined, {
     month: "long",
     year: "numeric",
+    timeZone: "UTC",
+  }).format(date);
+}
+
+function tripMonth(startDate) {
+  const date = new Date(`${startDate}T00:00:00Z`);
+  if (Number.isNaN(date.getTime())) {
+    return "Date unknown";
+  }
+
+  return new Intl.DateTimeFormat(undefined, {
+    month: "long",
     timeZone: "UTC",
   }).format(date);
 }
@@ -317,15 +330,10 @@ function selectTrip(tripId) {
   const bounds = L.latLngBounds(
     nextGroup.markers.map((marker) => marker.getLatLng()),
   );
-  const sidebarOverlaysMap = window.matchMedia("(max-width: 36rem)").matches;
-  const sidebarPadding =
-    sidebarOverlaysMap && !tripsSidebar.classList.contains("is-collapsed")
-      ? tripsSidebar.getBoundingClientRect().width + 30
-      : 50;
 
   nextGroup.markers[0].openPopup();
   map.fitBounds(bounds, {
-    paddingTopLeft: [sidebarPadding, 50],
+    paddingTopLeft: [50, 50],
     paddingBottomRight: [50, 50],
     maxZoom: SELECTED_TRIP_MAX_ZOOM,
   });
@@ -394,6 +402,57 @@ function renderTripsSidebar(trips) {
   }
 }
 
+function renderJourneyTimeline(trips) {
+  const chronologicalTrips = [...trips].sort((first, second) =>
+    first.start_date.localeCompare(second.start_date),
+  );
+  const tripsByYear = new Map();
+
+  for (const trip of chronologicalTrips) {
+    const year = trip.start_date?.slice(0, 4) || "Date unknown";
+    const yearTrips = tripsByYear.get(year) || [];
+    yearTrips.push(trip);
+    tripsByYear.set(year, yearTrips);
+  }
+
+  journeyTimeline.replaceChildren();
+
+  if (!chronologicalTrips.length) {
+    const emptyMessage = document.createElement("p");
+    emptyMessage.className = "timeline-empty";
+    emptyMessage.textContent = "No journeys match the selected filters.";
+    journeyTimeline.append(emptyMessage);
+    return;
+  }
+
+  for (const [year, yearTrips] of tripsByYear) {
+    const yearSection = document.createElement("section");
+    const heading = document.createElement("h3");
+    const list = document.createElement("ol");
+
+    yearSection.className = "timeline-year";
+    heading.textContent = year;
+    list.className = "timeline-trips";
+
+    for (const trip of yearTrips) {
+      const item = document.createElement("li");
+      const month = document.createElement("span");
+      const title = document.createElement("span");
+
+      item.className = "timeline-trip";
+      month.className = "timeline-month";
+      month.textContent = tripMonth(trip.start_date);
+      title.className = "timeline-title";
+      title.textContent = trip.title;
+      item.append(month, title);
+      list.append(item);
+    }
+
+    yearSection.append(heading, list);
+    journeyTimeline.append(yearSection);
+  }
+}
+
 function addTripStops(trips) {
   const markerBounds = [];
   markerLayer.clearLayers();
@@ -451,6 +510,33 @@ function renderFilteredTrips() {
   populateCategoryLegend(filteredTrips);
   addTripStops(filteredTrips);
   renderTripsSidebar(filteredTrips);
+  renderJourneyTimeline(filteredTrips);
+  invalidateMapSizeAfterLayout();
+}
+
+function invalidateMapSizeAfterLayout() {
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => map.invalidateSize());
+  });
+}
+
+function updateTripToggleIcon() {
+  const collapsed = tripsSidebar.classList.contains("is-collapsed");
+  const usesMobileLayout = window.matchMedia("(max-width: 44rem)").matches;
+  const icon = usesMobileLayout
+    ? collapsed
+      ? "⌄"
+      : "⌃"
+    : collapsed
+      ? "›"
+      : "‹";
+  tripsSidebarToggle.querySelector(".trips-toggle-icon").textContent =
+    icon;
+}
+
+function handleWindowResize() {
+  updateTripToggleIcon();
+  invalidateMapSizeAfterLayout();
 }
 
 function setTripsSidebarCollapsed(collapsed) {
@@ -461,8 +547,9 @@ function setTripsSidebarCollapsed(collapsed) {
     "aria-label",
     collapsed ? "Expand trips sidebar" : "Collapse trips sidebar",
   );
-  tripsSidebarToggle.querySelector("span").textContent = collapsed ? "›" : "‹";
-  window.setTimeout(() => map.invalidateSize(), 220);
+  updateTripToggleIcon();
+  invalidateMapSizeAfterLayout();
+  window.setTimeout(invalidateMapSizeAfterLayout, 220);
 }
 
 async function loadTrips() {
@@ -493,8 +580,9 @@ tripsSidebarToggle.addEventListener("click", () => {
   setTripsSidebarCollapsed(!tripsSidebar.classList.contains("is-collapsed"));
 });
 clearTripSelectionButton.addEventListener("click", clearTripSelection);
+window.addEventListener("resize", handleWindowResize);
 
-if (window.matchMedia("(max-width: 36rem)").matches) {
+if (window.matchMedia("(max-width: 44rem)").matches) {
   setTripsSidebarCollapsed(true);
 }
 
