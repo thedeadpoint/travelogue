@@ -7,5 +7,11 @@ __pycache__/
 output/*
 !output/.gitkeep
 
+# Local photos and generated web images
+photos/inbox/*
+!photos/inbox/.gitkeep
+photos/processed/*
+!photos/processed/.gitkeep
+
 # Operating system files
 .DS_Store

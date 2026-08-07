@@ -22,6 +22,8 @@ const filterForm = document.querySelector("#filters");
 const tripsSidebar = document.querySelector("#trips-sidebar");
 const tripsSidebarToggle = document.querySelector("#trips-sidebar-toggle");
 const tripsList = document.querySelector("#trips-list");
+const journeyHighlights = document.querySelector("#journey-highlights");
+const highlightsList = document.querySelector("#highlights-list");
 const journeyTimeline = document.querySelector("#journey-timeline");
 const clearTripSelectionButton = document.querySelector(
   "#clear-trip-selection",
@@ -453,6 +455,56 @@ function renderJourneyTimeline(trips) {
   }
 }
 
+function renderJourneyHighlights(trips) {
+  const highlightedTrips = trips
+    .filter((trip) => trip.highlight === true)
+    .sort((first, second) =>
+      first.start_date.localeCompare(second.start_date),
+    );
+
+  highlightsList.replaceChildren();
+  journeyHighlights.hidden = highlightedTrips.length === 0;
+
+  for (const trip of highlightedTrips) {
+    const card = document.createElement("article");
+    const media = document.createElement("div");
+    const content = document.createElement("div");
+    const date = document.createElement("p");
+    const highlightTitle = document.createElement("h3");
+    const tripTitle = document.createElement("p");
+    const note = document.createElement("p");
+
+    card.className = "highlight-card";
+    media.className = "highlight-media is-placeholder";
+    content.className = "highlight-content";
+    date.className = "highlight-date";
+    date.textContent = tripMonthYear(trip.start_date);
+    highlightTitle.textContent = trip.highlight_title || trip.title;
+    tripTitle.className = "highlight-trip-title";
+    tripTitle.textContent = trip.title;
+    note.className = "highlight-note";
+    note.textContent = trip.highlight_note || "";
+
+    if (trip.highlight_photo) {
+      const image = document.createElement("img");
+      image.src = trip.highlight_photo;
+      image.alt = `${trip.highlight_title || trip.title} — ${trip.title}`;
+      image.addEventListener("load", () =>
+        media.classList.remove("is-placeholder"),
+      );
+      image.addEventListener("error", () => image.remove());
+      media.append(image);
+    }
+
+    const placeholderLabel = document.createElement("span");
+    placeholderLabel.textContent = "Photograph coming soon";
+    media.append(placeholderLabel);
+    content.append(date, highlightTitle, tripTitle, note);
+    card.append(media, content);
+    highlightsList.append(card);
+  }
+}
+
 function addTripStops(trips) {
   const markerBounds = [];
   markerLayer.clearLayers();
@@ -561,6 +613,7 @@ async function loadTrips() {
 
     allTrips = await response.json();
     populateFilters(allTrips);
+    renderJourneyHighlights(allTrips);
     renderFilteredTrips();
   } catch (error) {
     console.error(error);

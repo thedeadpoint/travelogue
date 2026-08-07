@@ -136,6 +136,10 @@ def build_trip(
         "favorite": boolean_value(row.get("Favorite")),
         "public": boolean_value(row.get("Public")),
         "summary": text_value(row.get("Summary")),
+        "highlight": boolean_value(row.get("Highlight")),
+        "highlight_title": text_value(row.get("Highlight Title")),
+        "highlight_note": text_value(row.get("Highlight Note")),
+        "highlight_photo": text_value(row.get("Highlight Photo")),
         "stops": stops,
     }
 

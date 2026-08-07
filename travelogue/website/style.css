@@ -505,6 +505,112 @@ h1 {
   line-height: 1.35;
 }
 
+.highlights-section[hidden] {
+  display: none;
+}
+
+.highlights-heading {
+  max-width: 42rem;
+  margin-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+
+.highlights-list {
+  display: grid;
+  gap: clamp(5rem, 10vw, 9rem);
+}
+
+.highlight-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.88fr);
+  align-items: center;
+  gap: clamp(2.5rem, 8vw, 7rem);
+}
+
+.highlight-card:nth-child(even) {
+  grid-template-columns: minmax(18rem, 0.88fr) minmax(0, 1.12fr);
+}
+
+.highlight-card:nth-child(even) .highlight-media {
+  order: 2;
+}
+
+.highlight-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  min-width: 0;
+  overflow: hidden;
+  background: #dfe7df;
+  border-radius: 1rem;
+  box-shadow: 0 1.5rem 4rem rgb(38 77 63 / 10%);
+}
+
+.highlight-media.is-placeholder {
+  display: grid;
+  place-items: center;
+  color: #f8f7f2;
+  background:
+    radial-gradient(circle at 72% 28%, rgb(255 255 255 / 70%) 0 7%, transparent 7.2%),
+    linear-gradient(145deg, #dfe7df 0 42%, #b9cbbd 42.2% 64%, #829f8e 64.2%);
+}
+
+.highlight-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.highlight-media span {
+  padding: 0.65rem 1rem;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 999px;
+}
+
+.highlight-media:not(.is-placeholder) span {
+  display: none;
+}
+
+.highlight-content {
+  max-width: 31rem;
+}
+
+.highlight-date {
+  margin: 0 0 1.25rem;
+  color: var(--terracotta);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.highlight-content h3 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.highlight-trip-title {
+  margin: 1rem 0 0;
+  color: #617269;
+  font-size: 0.73rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.highlight-note {
+  margin: 2rem 0 0;
+  color: #50665c;
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  line-height: 1.7;
+}
+
 .timeline-section {
   display: grid;
   grid-template-columns: minmax(14rem, 0.6fr) minmax(20rem, 1.4fr);
@@ -817,6 +923,16 @@ h1 {
   .timeline-section {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .highlight-card,
+  .highlight-card:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .highlight-card:nth-child(even) .highlight-media {
+    order: 0;
   }
 
   .timeline-year {
