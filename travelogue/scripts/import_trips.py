@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -15,6 +16,7 @@ PROJECT_DIR = Path(__file__).resolve().parent.parent
 WORKBOOK_PATH = PROJECT_DIR / "data" / "Travelogue Data.xlsx"
 CACHE_PATH = PROJECT_DIR / "data" / "geocode_cache.json"
 OUTPUT_PATH = PROJECT_DIR / "output" / "trips.json"
+PROCESSED_PHOTOS_DIR = PROJECT_DIR / "photos" / "processed"
 USER_AGENT = "travelogue-personal-travel-atlas/0.1 (local trip importer)"
 
 
@@ -73,6 +75,29 @@ def boolean_value(value: Any) -> bool:
 def integer_value(value: Any) -> int:
     """Convert a numeric spreadsheet value to an integer."""
     return 0 if pd.isna(value) else int(value)
+
+
+def photo_stem(filename: str) -> str:
+    """Return the normalized stem used by the photo import script."""
+    stem = Path(filename).stem.strip().lower()
+    stem = re.sub(r"\s+", "_", stem)
+    return re.sub(r"[^a-z0-9._-]+", "_", stem).strip("._-")
+
+
+def processed_photo_path(value: Any) -> str:
+    """Match a workbook photo filename to its processed JPEG URL."""
+    filename = text_value(value)
+    if not filename or not PROCESSED_PHOTOS_DIR.exists():
+        return ""
+
+    expected_name = f"{photo_stem(filename)}.jpg"
+    matches = {
+        path.name.lower(): path.name
+        for path in PROCESSED_PHOTOS_DIR.iterdir()
+        if path.is_file() and path.suffix.lower() == ".jpg"
+    }
+    matched_name = matches.get(expected_name.lower())
+    return f"../photos/processed/{matched_name}" if matched_name else ""
 
 
 def geocode_stop(
@@ -139,7 +164,11 @@ def build_trip(
         "highlight": boolean_value(row.get("Highlight")),
         "highlight_title": text_value(row.get("Highlight Title")),
         "highlight_note": text_value(row.get("Highlight Note")),
-        "highlight_photo": text_value(row.get("Highlight Photo")),
+        # The workbook currently labels this column "Photo"; retain support for
+        # the more explicit name in case the sheet is updated later.
+        "highlight_photo": processed_photo_path(
+            row.get("Highlight Photo", row.get("Photo"))
+        ),
         "stops": stops,
     }
 

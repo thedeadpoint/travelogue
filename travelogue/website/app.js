@@ -25,6 +25,7 @@ const tripsList = document.querySelector("#trips-list");
 const journeyHighlights = document.querySelector("#journey-highlights");
 const highlightsList = document.querySelector("#highlights-list");
 const journeyTimeline = document.querySelector("#journey-timeline");
+const heroImage = document.querySelector(".hero-photo-placeholder img");
 const clearTripSelectionButton = document.querySelector(
   "#clear-trip-selection",
 );
@@ -38,6 +39,8 @@ let allTrips = [];
 let tripMarkerGroups = new Map();
 let tripListButtonsById = new Map();
 let selectedTripId = null;
+
+heroImage?.addEventListener("error", () => heroImage.remove());
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:

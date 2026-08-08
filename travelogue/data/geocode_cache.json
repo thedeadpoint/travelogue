@@ -123,6 +123,10 @@
     "latitude": 47.5575522,
     "longitude": 10.7496959
   },
+  "Nuremberg, Germany": {
+    "latitude": 49.453872,
+    "longitude": 11.077298
+  },
   "Paris, France": {
     "latitude": 48.8534951,
     "longitude": 2.3483915
@@ -155,6 +159,10 @@
     "latitude": 48.1660766,
     "longitude": 7.298014
   },
+  "Rothenburg ob der Tauber, Germany": {
+    "latitude": 49.3658042,
+    "longitude": 10.1629182
+  },
   "Saint-Maurice-sur-Moselle, France": {
     "latitude": 47.8588336,
     "longitude": 6.8244935
@@ -174,6 +182,10 @@
   "Strasbourg, France": {
     "latitude": 48.584614,
     "longitude": 7.7507127
+  },
+  "Stuttgart, Germany": {
+    "latitude": 48.7784485,
+    "longitude": 9.1800132
   },
   "Tallinn, Estonia": {
     "latitude": 59.437242,
@@ -214,6 +226,10 @@
   "Zandvoort, Netherlands": {
     "latitude": 52.3595223,
     "longitude": 4.5350259
+  },
+  "Zirndorf, Germany": {
+    "latitude": 49.4334921,
+    "longitude": 10.9282447
   },
   "Zugspitze, Germany": {
     "latitude": 47.421215,
