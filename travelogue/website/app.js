@@ -225,11 +225,15 @@ function updateStatistics(trips) {
   let stops = 0;
   let travelDays = 0;
   let bordersCrossed = 0;
+  let estimatedDistanceKm = 0;
+  let estimatedDistanceMiles = 0;
 
   for (const trip of trips) {
     stops += trip.stops.length;
     travelDays += countTravelDays(trip.start_date, trip.end_date);
     bordersCrossed += Number(trip.borders_crossed) || 0;
+    estimatedDistanceKm += Number(trip.estimated_distance_km) || 0;
+    estimatedDistanceMiles += Number(trip.estimated_distance_miles) || 0;
 
     for (const stop of trip.stops) {
       const country = countryFromStopName(stop.name);
@@ -244,6 +248,10 @@ function updateStatistics(trips) {
   document.querySelector("#stops-total").textContent = stops;
   document.querySelector("#travel-days-total").textContent = travelDays;
   document.querySelector("#borders-total").textContent = bordersCrossed;
+  document.querySelector("#distance-km-total").textContent =
+    `${Math.round(estimatedDistanceKm).toLocaleString()} km`;
+  document.querySelector("#distance-miles-total").textContent =
+    `${Math.round(estimatedDistanceMiles).toLocaleString()} mi`;
 }
 
 function addPopupContent(marker, trip, stop) {

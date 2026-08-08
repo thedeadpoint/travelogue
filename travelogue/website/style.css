@@ -160,7 +160,7 @@ h1 {
 
 .statistics {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -194,6 +194,13 @@ h1 {
   font-weight: 750;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.distance-statistic-value {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
 }
 
 .map-section {
