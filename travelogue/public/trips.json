@@ -1,0 +1,1184 @@
+[
+  {
+    "trip_id": "TRIP-001",
+    "title": "First Day Trip to France",
+    "start_date": "2024-08-31",
+    "end_date": "2024-08-31",
+    "travel_mode": "Car",
+    "category": "Kid-Focused",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "First Day Trip to France",
+    "estimated_distance_km": 146.7,
+    "estimated_distance_miles": 91.1,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Wissembourg, France",
+        "latitude": 49.0365935,
+        "longitude": 7.9445109
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-002",
+    "title": "First Day Trip to Luxembourg",
+    "start_date": "2024-09-21",
+    "end_date": "2024-09-21",
+    "travel_mode": "Car",
+    "category": "Kid-Focused",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "First Day Trip to Luxembourg",
+    "estimated_distance_km": 229.0,
+    "estimated_distance_miles": 142.3,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Luxembourg City, Luxembourg",
+        "latitude": 49.601051,
+        "longitude": 6.0639946
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-003",
+    "title": "2024 Fall Trip to Austrian Alps",
+    "start_date": "2024-10-27",
+    "end_date": "2024-10-30",
+    "travel_mode": "Car",
+    "category": "Long Vacation",
+    "borders_crossed": 6,
+    "favorite": true,
+    "summary": "2024 Fall Break to Austrian Alps",
+    "estimated_distance_km": 805.5,
+    "estimated_distance_miles": 500.5,
+    "highlight": true,
+    "highlight_title": "First Real Trip",
+    "highlight_note": "Doing what we came here to do!",
+    "highlight_photo": "photos/processed/img_6376.jpg",
+    "stops": [
+      {
+        "name": "Ludwigsburg, Germany",
+        "latitude": 48.8953937,
+        "longitude": 9.1895147
+      },
+      {
+        "name": "Lindau, Germany",
+        "latitude": 47.5728668,
+        "longitude": 9.6961919
+      },
+      {
+        "name": "Brand, Austria",
+        "latitude": 47.104245,
+        "longitude": 9.7378763
+      },
+      {
+        "name": "Vaduz, Liechtenstein",
+        "latitude": 47.1392862,
+        "longitude": 9.5227962
+      },
+      {
+        "name": "Sevelen, Switzerland",
+        "latitude": 47.1206239,
+        "longitude": 9.486921
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-004",
+    "title": "2024 Wissembourg Marché de Nöel",
+    "start_date": "2024-12-14",
+    "end_date": "2024-12-14",
+    "travel_mode": "Car",
+    "category": "Christmas Market",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "2024 Wissembourg Marché de Nöel",
+    "estimated_distance_km": 146.7,
+    "estimated_distance_miles": 91.1,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Wissembourg, France",
+        "latitude": 49.0365935,
+        "longitude": 7.9445109
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-005",
+    "title": "2024 Metz Marché de Nöel & Zoolights",
+    "start_date": "2024-12-28",
+    "end_date": "2024-12-28",
+    "travel_mode": "Car",
+    "category": "Christmas Market",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "2024 Metz Marché de Nöel & Zoolights",
+    "estimated_distance_km": 222.3,
+    "estimated_distance_miles": 138.2,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Metz, France",
+        "latitude": 49.1196964,
+        "longitude": 6.1763552
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-006",
+    "title": "Weekend in Paris",
+    "start_date": "2025-01-10",
+    "end_date": "2025-01-12",
+    "travel_mode": "Train",
+    "category": "Special Occasion",
+    "borders_crossed": 2,
+    "favorite": true,
+    "summary": "George's 2025 Birthday Trip",
+    "estimated_distance_km": 851.3,
+    "estimated_distance_miles": 529.0,
+    "highlight": true,
+    "highlight_title": "A Favorite Birthday",
+    "highlight_note": "Even in the cold of January, Paris warms our hearts.",
+    "highlight_photo": "photos/processed/img_8679.jpg",
+    "stops": [
+      {
+        "name": "Paris, France",
+        "latitude": 48.8534951,
+        "longitude": 2.3483915
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-007",
+    "title": "Sunny Weekend in Valencia",
+    "start_date": "2025-01-17",
+    "end_date": "2025-01-20",
+    "travel_mode": "Plane",
+    "category": "Long Weekend",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "2025 MLK Jr. Trip to Valencia",
+    "estimated_distance_km": 2530.1,
+    "estimated_distance_miles": 1572.1,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Valencia, Spain",
+        "latitude": 39.4697065,
+        "longitude": -0.3763353
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-008",
+    "title": "2025 Black Forest Ski Weekend",
+    "start_date": "2025-02-17",
+    "end_date": "2025-02-17",
+    "travel_mode": "Car",
+    "category": "Skiing",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "2025 Black Forest Ski Weekend",
+    "estimated_distance_km": 438.9,
+    "estimated_distance_miles": 272.7,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Feldberg, Germany",
+        "latitude": 47.8620963,
+        "longitude": 8.1019449
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-009",
+    "title": "2025 Ski Trip with Friends",
+    "start_date": "2025-02-23",
+    "end_date": "2025-03-02",
+    "travel_mode": "Car",
+    "category": "Skiing",
+    "borders_crossed": 4,
+    "favorite": true,
+    "summary": "2025 Ski Trip with Heidenhains",
+    "estimated_distance_km": 840.9,
+    "estimated_distance_miles": 522.5,
+    "highlight": true,
+    "highlight_title": "Favorite Ski Trip",
+    "highlight_note": "A big reason why we moved to Europe!",
+    "highlight_photo": "photos/processed/img_9794.jpg",
+    "stops": [
+      {
+        "name": "Ehrwald, Austria",
+        "latitude": 47.3986534,
+        "longitude": 10.9205046
+      },
+      {
+        "name": "Zugspitze, Germany",
+        "latitude": 47.421215,
+        "longitude": 10.986297
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-010",
+    "title": "Beach, Tulips, and Bruges",
+    "start_date": "2025-04-18",
+    "end_date": "2025-04-21",
+    "travel_mode": "Car",
+    "category": "Long Vacation",
+    "borders_crossed": 3,
+    "favorite": false,
+    "summary": "2025 Spring Break",
+    "estimated_distance_km": 1166.9,
+    "estimated_distance_miles": 725.1,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Zandvoort, Netherlands",
+        "latitude": 52.3595223,
+        "longitude": 4.5350259
+      },
+      {
+        "name": "Keukenhof, Netherlands",
+        "latitude": 52.2698728,
+        "longitude": 4.5472566
+      },
+      {
+        "name": "Bruges, Belgium",
+        "latitude": 51.2085526,
+        "longitude": 3.226772
+      },
+      {
+        "name": "Cologne, Germany",
+        "latitude": 50.938361,
+        "longitude": 6.959974
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-011",
+    "title": "Meeting Friends in Strasbourg",
+    "start_date": "2025-05-10",
+    "end_date": "2025-05-10",
+    "travel_mode": "Car",
+    "category": "Day Trip",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "Mastersons Day Trip",
+    "estimated_distance_km": 236.3,
+    "estimated_distance_miles": 146.8,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Strasbourg, France",
+        "latitude": 48.584614,
+        "longitude": 7.7507127
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-012",
+    "title": "Lake Annecy",
+    "start_date": "2025-05-28",
+    "end_date": "2025-06-01",
+    "travel_mode": "Car",
+    "category": "Long Weekend",
+    "borders_crossed": 7,
+    "favorite": true,
+    "summary": "Lake Annecy",
+    "estimated_distance_km": 968.4,
+    "estimated_distance_miles": 601.7,
+    "highlight": true,
+    "highlight_title": "George's \"Can't Stop Thinking About\" Trip",
+    "highlight_note": "Refreshing swimming, delicious food, unbeatable views.",
+    "highlight_photo": "photos/processed/img_2901.jpg",
+    "stops": [
+      {
+        "name": "Annecy, France",
+        "latitude": 45.8992348,
+        "longitude": 6.1288847
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-013",
+    "title": "Honeymoon Re-Creation",
+    "start_date": "2025-06-06",
+    "end_date": "2025-06-09",
+    "travel_mode": "Plane",
+    "category": "Special Occasion",
+    "borders_crossed": 2,
+    "favorite": true,
+    "summary": "Honeymoon Re-Creation",
+    "estimated_distance_km": 1976.8,
+    "estimated_distance_miles": 1228.3,
+    "highlight": true,
+    "highlight_title": "Most Nostalgic",
+    "highlight_note": "Revisiting our favorite honeymoon spot.",
+    "highlight_photo": "photos/processed/img_3151.jpg",
+    "stops": [
+      {
+        "name": "Bol, Croatia",
+        "latitude": 43.2605186,
+        "longitude": 16.6520192
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-014",
+    "title": "Black Forest July 4th Trip",
+    "start_date": "2025-07-04",
+    "end_date": "2025-07-06",
+    "travel_mode": "Car",
+    "category": "Long Weekend",
+    "borders_crossed": 4,
+    "favorite": false,
+    "summary": "Black Forest July 4th Trip",
+    "estimated_distance_km": 349.4,
+    "estimated_distance_miles": 217.1,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Gutach, Germany",
+        "latitude": 48.2487016,
+        "longitude": 8.2116631
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-015",
+    "title": "Pairi Daiza 2025",
+    "start_date": "2025-07-18",
+    "end_date": "2025-07-19",
+    "travel_mode": "Car",
+    "category": "Kid-Focused",
+    "borders_crossed": 4,
+    "favorite": true,
+    "summary": "Pairi Daiza 2025",
+    "estimated_distance_km": 675.7,
+    "estimated_distance_miles": 419.8,
+    "highlight": true,
+    "highlight_title": "Best Hotel",
+    "highlight_note": "Walruses for neighbors and 24-hour access to an incredible zoo.",
+    "highlight_photo": "photos/processed/img_4880.jpg",
+    "stops": [
+      {
+        "name": "Brugelette, Belgium",
+        "latitude": 50.6016956,
+        "longitude": 3.8647979
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-016",
+    "title": "Anniversary at Tour de France",
+    "start_date": "2025-07-24",
+    "end_date": "2025-07-27",
+    "travel_mode": "Car",
+    "category": "Special Occasion",
+    "borders_crossed": 6,
+    "favorite": true,
+    "summary": "10th Anniversary Trip",
+    "estimated_distance_km": 822.4,
+    "estimated_distance_miles": 511.0,
+    "highlight": true,
+    "highlight_title": "First Tour de France",
+    "highlight_note": "And a big wedding anniversary!",
+    "highlight_photo": "photos/processed/img_5170.jpg",
+    "stops": [
+      {
+        "name": "Vevey, Switzerland",
+        "latitude": 46.4602978,
+        "longitude": 6.8418655
+      },
+      {
+        "name": "Pontarlier, France",
+        "latitude": 46.9040348,
+        "longitude": 6.3546345
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-017",
+    "title": "Rothenburg ob der Tauber",
+    "start_date": "2025-08-01",
+    "end_date": "2025-08-03",
+    "travel_mode": "Car",
+    "category": "City",
+    "borders_crossed": 0,
+    "favorite": false,
+    "summary": "Rothenburg ob der Tauber",
+    "estimated_distance_km": 487.1,
+    "estimated_distance_miles": 302.6,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Rothenburg ob der Tauber, Germany",
+        "latitude": 49.3658042,
+        "longitude": 10.1629182
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-018",
+    "title": "Playmobil Fun Park & Nürmberg",
+    "start_date": "2025-08-08",
+    "end_date": "2025-08-10",
+    "travel_mode": "Car",
+    "category": "Kid-Focused",
+    "borders_crossed": 0,
+    "favorite": false,
+    "summary": "Playmobil Fun Park with Cousins",
+    "estimated_distance_km": 645.9,
+    "estimated_distance_miles": 401.3,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Zirndorf, Germany",
+        "latitude": 49.4334921,
+        "longitude": 10.9282447
+      },
+      {
+        "name": "Nuremberg, Germany",
+        "latitude": 49.453872,
+        "longitude": 11.077298
+      },
+      {
+        "name": "Schwetzingen, Germany",
+        "latitude": 49.3832919,
+        "longitude": 8.5735135
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-019",
+    "title": "Norway 2025 Trip",
+    "start_date": "2025-08-16",
+    "end_date": "2025-08-21",
+    "travel_mode": "Plane; Car",
+    "category": "Long Vacation",
+    "borders_crossed": 2,
+    "favorite": true,
+    "summary": "Norway 2025 Trip",
+    "estimated_distance_km": 2157.1,
+    "estimated_distance_miles": 1340.4,
+    "highlight": true,
+    "highlight_title": "Big Summer Trip",
+    "highlight_note": "Visiting a bucket list country!",
+    "highlight_photo": "photos/processed/img_7044.jpg",
+    "stops": [
+      {
+        "name": "Stavanger, Norway",
+        "latitude": 58.9699675,
+        "longitude": 5.7318101
+      },
+      {
+        "name": "Preikestolen, Norway",
+        "latitude": 58.9868297,
+        "longitude": 6.1889721
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-020",
+    "title": "Gstaad Almabtrieb",
+    "start_date": "2025-09-05",
+    "end_date": "2025-09-07",
+    "travel_mode": "Car",
+    "category": "Festival",
+    "borders_crossed": 4,
+    "favorite": true,
+    "summary": "Gstaad Almabtreib",
+    "estimated_distance_km": 790.0,
+    "estimated_distance_miles": 490.9,
+    "highlight": true,
+    "highlight_title": "Fanciest Livestock",
+    "highlight_note": "Cows with hats!",
+    "highlight_photo": "photos/processed/img_6900.jpg",
+    "stops": [
+      {
+        "name": "Gstaad, Switzerland",
+        "latitude": 46.4721619,
+        "longitude": 7.288748
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-021",
+    "title": "September in Paris",
+    "start_date": "2025-09-25",
+    "end_date": "2025-09-28",
+    "travel_mode": "Car",
+    "category": "City",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "2025 Paris with ChooChoo",
+    "estimated_distance_km": 888.3,
+    "estimated_distance_miles": 552.0,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Paris, France",
+        "latitude": 48.8534951,
+        "longitude": 2.3483915
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-022",
+    "title": "Volksfest with Friends",
+    "start_date": "2025-10-03",
+    "end_date": "2025-10-05",
+    "travel_mode": "Car",
+    "category": "Festival",
+    "borders_crossed": 0,
+    "favorite": false,
+    "summary": "Volksfest with Friends",
+    "estimated_distance_km": 362.6,
+    "estimated_distance_miles": 225.3,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Stuttgart, Germany",
+        "latitude": 48.7784485,
+        "longitude": 9.1800132
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-023",
+    "title": "Fall in Slovenia",
+    "start_date": "2025-10-11",
+    "end_date": "2025-10-15",
+    "travel_mode": "Car",
+    "category": "Long Vacation",
+    "borders_crossed": 4,
+    "favorite": true,
+    "summary": "2025 Fall Break to Slovenia",
+    "estimated_distance_km": 1581.8,
+    "estimated_distance_miles": 982.9,
+    "highlight": true,
+    "highlight_title": "Best Fall Foliage",
+    "highlight_note": "Another bucket list country!",
+    "highlight_photo": "photos/processed/img_8523.jpg",
+    "stops": [
+      {
+        "name": "Lake Bohinj, Slovenia",
+        "latitude": 46.2822654,
+        "longitude": 13.8645306
+      },
+      {
+        "name": "Lake Bled, Slovenia",
+        "latitude": 46.3639132,
+        "longitude": 14.0938069
+      },
+      {
+        "name": "Ljubljana, Slovenia",
+        "latitude": 46.0500268,
+        "longitude": 14.5069289
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-024",
+    "title": "Thanksgiving with Friends",
+    "start_date": "2025-11-25",
+    "end_date": "2025-11-30",
+    "travel_mode": "Plane; Car",
+    "category": "Special Occasion",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "2025 Thanksgiving with Heidenhains",
+    "estimated_distance_km": 1903.8,
+    "estimated_distance_miles": 1183.0,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Krakow, Poland",
+        "latitude": 50.0469432,
+        "longitude": 19.9971534
+      },
+      {
+        "name": "Zakopane, Poland",
+        "latitude": 49.2969114,
+        "longitude": 19.9504753
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-025",
+    "title": "Luxembourg Christmas Market with Friends",
+    "start_date": "2025-12-06",
+    "end_date": "2025-12-06",
+    "travel_mode": "Car",
+    "category": "Christmas Market",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "Luxembourg Christmas Market with Emily",
+    "estimated_distance_km": 229.0,
+    "estimated_distance_miles": 142.3,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Luxembourg City, Luxembourg",
+        "latitude": 49.601051,
+        "longitude": 6.0639946
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-026",
+    "title": "Grocery Trip",
+    "start_date": "2025-12-13",
+    "end_date": "2025-12-13",
+    "travel_mode": "Car",
+    "category": "Groceries",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "Trip to Forbach Carrefour",
+    "estimated_distance_km": 104.1,
+    "estimated_distance_miles": 64.7,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Forbach, France",
+        "latitude": 49.1862822,
+        "longitude": 6.8958562
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-027",
+    "title": "Ravenna Gorge Christmas Market",
+    "start_date": "2025-12-19",
+    "end_date": "2025-12-21",
+    "travel_mode": "Car",
+    "category": "Christmas Market",
+    "borders_crossed": 4,
+    "favorite": true,
+    "summary": "Ravenna Gorge Christmas Market with ChooChoo",
+    "estimated_distance_km": 528.7,
+    "estimated_distance_miles": 328.5,
+    "highlight": true,
+    "highlight_title": "Best Christmas Market Trip",
+    "highlight_note": "Featuring a torch-lit walk in the Black Forest.",
+    "highlight_photo": "photos/processed/img_0767.jpg",
+    "stops": [
+      {
+        "name": "Wissembourg, France",
+        "latitude": 49.0365935,
+        "longitude": 7.9445109
+      },
+      {
+        "name": "Ravennaschlucht, Germany",
+        "latitude": 47.9187742,
+        "longitude": 8.0801234
+      },
+      {
+        "name": "Schwetzingen, Germany",
+        "latitude": 49.3832919,
+        "longitude": 8.5735135
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-028",
+    "title": "Luxembourg Christmas Market with Family",
+    "start_date": "2025-12-28",
+    "end_date": "2025-12-28",
+    "travel_mode": "Car",
+    "category": "Christmas Market",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "Luxembourg Christmas Market with ChooChoo, Mac, & Fam",
+    "estimated_distance_km": 229.0,
+    "estimated_distance_miles": 142.3,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Luxembourg City, Luxembourg",
+        "latitude": 49.601051,
+        "longitude": 6.0639946
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-029",
+    "title": "Metz Christmas Market with Family",
+    "start_date": "2025-12-30",
+    "end_date": "2025-12-30",
+    "travel_mode": "Car",
+    "category": "Christmas Market",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "Metz Christmas Market with ChooChoo, Mac, & Fam",
+    "estimated_distance_km": 222.3,
+    "estimated_distance_miles": 138.2,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Metz, France",
+        "latitude": 49.1196964,
+        "longitude": 6.1763552
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-030",
+    "title": "Zurich in January",
+    "start_date": "2026-01-06",
+    "end_date": "2026-01-10",
+    "travel_mode": "Car",
+    "category": "Special Occasion",
+    "borders_crossed": 4,
+    "favorite": false,
+    "summary": "George's 2026 Birthday Trip",
+    "estimated_distance_km": 587.6,
+    "estimated_distance_miles": 365.1,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Zurich, Switzerland",
+        "latitude": 47.3744489,
+        "longitude": 8.5410422
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-031",
+    "title": "Sunny Weekend in Porto",
+    "start_date": "2026-01-16",
+    "end_date": "2026-01-19",
+    "travel_mode": "Plane; Car",
+    "category": "Long Weekend",
+    "borders_crossed": 4,
+    "favorite": false,
+    "summary": "2026 MLK Jr. Trip to Porto",
+    "estimated_distance_km": 3119.9,
+    "estimated_distance_miles": 1938.6,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Luxembourg City, Luxembourg",
+        "latitude": 49.601051,
+        "longitude": 6.0639946
+      },
+      {
+        "name": "Porto, Portugal",
+        "latitude": 41.1502195,
+        "longitude": -8.6103497
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-032",
+    "title": "2026 Winter Olympics",
+    "start_date": "2026-02-11",
+    "end_date": "2026-02-16",
+    "travel_mode": "Car",
+    "category": "Special Occasion",
+    "borders_crossed": 5,
+    "favorite": true,
+    "summary": "2026 Winter Olympics",
+    "estimated_distance_km": 1507.8,
+    "estimated_distance_miles": 936.9,
+    "highlight": true,
+    "highlight_title": "Most Awe-Inspiring",
+    "highlight_note": "Love being citizens of the world.",
+    "highlight_photo": "photos/processed/img_2215.jpg",
+    "stops": [
+      {
+        "name": "Neuschwanstein Castle, Germany",
+        "latitude": 47.5575522,
+        "longitude": 10.7496959
+      },
+      {
+        "name": "Milan, Italy",
+        "latitude": 45.4641943,
+        "longitude": 9.1896346
+      },
+      {
+        "name": "Tesero, Italy",
+        "latitude": 46.2780329,
+        "longitude": 11.5165038
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-033",
+    "title": "French Ski Weekend",
+    "start_date": "2026-02-20",
+    "end_date": "2026-02-22",
+    "travel_mode": "Car",
+    "category": "Skiing",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "2026 Ski Trip with Pebnertons",
+    "estimated_distance_km": 389.8,
+    "estimated_distance_miles": 242.2,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "La Bresse, France",
+        "latitude": 48.0066282,
+        "longitude": 6.8766915
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-034",
+    "title": "Easter in the Baltics",
+    "start_date": "2026-03-28",
+    "end_date": "2026-04-06",
+    "travel_mode": "Plane; Car",
+    "category": "Long Vacation",
+    "borders_crossed": 4,
+    "favorite": true,
+    "summary": "2026 Spring Break",
+    "estimated_distance_km": 3467.0,
+    "estimated_distance_miles": 2154.3,
+    "highlight": true,
+    "highlight_title": "Best Hidden Gems",
+    "highlight_note": "Three wonderful countries so easy to access.",
+    "highlight_photo": "photos/processed/img_0562.jpg",
+    "stops": [
+      {
+        "name": "Vilnius, Lithuania",
+        "latitude": 54.6870458,
+        "longitude": 25.2829111
+      },
+      {
+        "name": "Riga, Latvia",
+        "latitude": 56.9493977,
+        "longitude": 24.1051846
+      },
+      {
+        "name": "Tallinn, Estonia",
+        "latitude": 59.437242,
+        "longitude": 24.7572693
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-035",
+    "title": "Luxembourg Day Trip",
+    "start_date": "2026-04-11",
+    "end_date": "2026-04-11",
+    "travel_mode": "Car",
+    "category": "Day Trip",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "Luxembourg Day Trip",
+    "estimated_distance_km": 175.6,
+    "estimated_distance_miles": 109.1,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Remerschen, Luxembourg",
+        "latitude": 49.4885953,
+        "longitude": 6.3518205
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-036",
+    "title": "Versailles & Paris",
+    "start_date": "2026-05-14",
+    "end_date": "2026-05-17",
+    "travel_mode": "Car",
+    "category": "Long Weekend",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "Versailles & Paris",
+    "estimated_distance_km": 929.3,
+    "estimated_distance_miles": 577.5,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Versailles, France",
+        "latitude": 48.8035403,
+        "longitude": 2.1266886
+      },
+      {
+        "name": "Paris, France",
+        "latitude": 48.8534951,
+        "longitude": 2.3483915
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-037",
+    "title": "Luxembourg with Friends",
+    "start_date": "2026-05-23",
+    "end_date": "2026-05-23",
+    "travel_mode": "Car",
+    "category": "Day Trip",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "Luxembourg Day Trip with Derbii",
+    "estimated_distance_km": 229.0,
+    "estimated_distance_miles": 142.3,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Luxembourg City, Luxembourg",
+        "latitude": 49.601051,
+        "longitude": 6.0639946
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-038",
+    "title": "Wissembourg Festival with Friends",
+    "start_date": "2026-05-24",
+    "end_date": "2026-05-24",
+    "travel_mode": "Car",
+    "category": "Festival",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "Wissembourg Day Trip with Derbii",
+    "estimated_distance_km": 146.7,
+    "estimated_distance_miles": 91.1,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Wissembourg, France",
+        "latitude": 49.0365935,
+        "longitude": 7.9445109
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-039",
+    "title": "Vosges Lake Weekend with Friends",
+    "start_date": "2026-06-04",
+    "end_date": "2026-06-07",
+    "travel_mode": "Car",
+    "category": "Long Weekend",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "French Long Weekend with ISW Friends",
+    "estimated_distance_km": 373.1,
+    "estimated_distance_miles": 231.9,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Gerardmer, France",
+        "latitude": 48.0705772,
+        "longitude": 6.8776965
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-040",
+    "title": "Beauty & the Beast Villages",
+    "start_date": "2026-06-18",
+    "end_date": "2026-06-21",
+    "travel_mode": "Car",
+    "category": "Long Weekend",
+    "borders_crossed": 2,
+    "favorite": true,
+    "summary": "Beauty & the Beast Villages",
+    "estimated_distance_km": 395.0,
+    "estimated_distance_miles": 245.5,
+    "highlight": true,
+    "highlight_title": "Most Provincial",
+    "highlight_note": "Bonjour! Bonjour! Bonjour!",
+    "highlight_photo": "photos/processed/img_6167.jpg",
+    "stops": [
+      {
+        "name": "Eguisheim, France",
+        "latitude": 48.0447968,
+        "longitude": 7.3079618
+      },
+      {
+        "name": "Riquewihr, France",
+        "latitude": 48.1660766,
+        "longitude": 7.298014
+      },
+      {
+        "name": "Colmar, France",
+        "latitude": 48.0777517,
+        "longitude": 7.3579641
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-041",
+    "title": "Dolomites with Friends",
+    "start_date": "2026-07-03",
+    "end_date": "2026-07-12",
+    "travel_mode": "Car",
+    "category": "Long Vacation",
+    "borders_crossed": 6,
+    "favorite": true,
+    "summary": "Dolomites with Pebnertons",
+    "estimated_distance_km": 1122.1,
+    "estimated_distance_miles": 697.2,
+    "highlight": true,
+    "highlight_title": "Best Mountains",
+    "highlight_note": "Great hikes, food, and views.",
+    "highlight_photo": "photos/processed/img_6803.jpg",
+    "stops": [
+      {
+        "name": "Biberwier, Austria",
+        "latitude": 47.3823667,
+        "longitude": 10.8915055
+      },
+      {
+        "name": "Colfosco, Italy",
+        "latitude": 46.5543844,
+        "longitude": 11.8548454
+      },
+      {
+        "name": "Alpe di Siusi, Italy",
+        "latitude": 46.531056,
+        "longitude": 11.6247091
+      },
+      {
+        "name": "Jungholz, Austria",
+        "latitude": 47.5708918,
+        "longitude": 10.4529902
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-042",
+    "title": "Tour de France and Strasbourg",
+    "start_date": "2026-07-17",
+    "end_date": "2026-07-19",
+    "travel_mode": "Car",
+    "category": "Special Occasion",
+    "borders_crossed": 2,
+    "favorite": false,
+    "summary": "2026 Tour de France & Strasbourg with ChooChoo",
+    "estimated_distance_km": 460.4,
+    "estimated_distance_miles": 286.1,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Strasbourg, France",
+        "latitude": 48.584614,
+        "longitude": 7.7507127
+      },
+      {
+        "name": "Saint-Maurice-sur-Moselle, France",
+        "latitude": 47.8588336,
+        "longitude": 6.8244935
+      }
+    ]
+  },
+  {
+    "trip_id": "TRIP-043",
+    "title": "2026 Pairi Daiza",
+    "start_date": "2026-07-31",
+    "end_date": "2026-08-02",
+    "travel_mode": "Car",
+    "category": "Kid-Focused",
+    "borders_crossed": 4,
+    "favorite": false,
+    "summary": "2026 Pairi Daiza",
+    "estimated_distance_km": 675.7,
+    "estimated_distance_miles": 419.9,
+    "highlight": false,
+    "highlight_title": "",
+    "highlight_note": "",
+    "highlight_photo": "",
+    "stops": [
+      {
+        "name": "Dinant, Belgium",
+        "latitude": 50.2591813,
+        "longitude": 4.9130588
+      },
+      {
+        "name": "Brugelette, Belgium",
+        "latitude": 50.6016956,
+        "longitude": 3.8647979
+      }
+    ]
+  }
+]

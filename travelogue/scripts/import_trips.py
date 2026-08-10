@@ -266,6 +266,7 @@ def build_trip(
     return {
         "trip_id": text_value(row.get("Trip ID")),
         "title": text_value(row.get("Trip Title")),
+        "public_title": text_value(row.get("Public Trip Title")) or None,
         "start_date": date_value(row.get("Start Date")),
         "end_date": date_value(row.get("End Date")),
         "travel_mode": text_value(row.get("Travel Mode")),

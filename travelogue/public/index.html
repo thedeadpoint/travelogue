@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Two years of family adventures across Europe, mapped in the Travel Atlas.">
+    <title>Two Years Exploring Europe — Travel Atlas</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Our Travel Atlas · 2024–2026</p>
+        <h1>Two Years<br>Exploring Europe</h1>
+        <p class="hero-intro">
+          Since moving to Germany in August 2024, our family has spent our free
+          time exploring Europe one adventure at a time.
+        </p>
+      </div>
+      <div class="hero-photo-placeholder">
+        <img src="photos/processed/hero.jpg" alt="A favorite view from our travels">
+        <span>Our favorite view belongs here</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="story-section statistics-section" aria-labelledby="statistics-heading">
+        <div class="section-heading">
+          <p class="eyebrow">The journey so far</p>
+          <h2 id="statistics-heading">By the numbers</h2>
+        </div>
+        <div class="statistics" aria-label="Travel statistics">
+          <div class="statistic">
+            <span id="trips-total" class="statistic-value">—</span>
+            <span class="statistic-label">Trips</span>
+          </div>
+          <div class="statistic">
+            <span id="countries-total" class="statistic-value">—</span>
+            <span class="statistic-label">Countries</span>
+          </div>
+          <div class="statistic">
+            <span id="stops-total" class="statistic-value">—</span>
+            <span class="statistic-label">Stops</span>
+          </div>
+          <div class="statistic">
+            <span id="travel-days-total" class="statistic-value">—</span>
+            <span class="statistic-label">Travel days</span>
+          </div>
+          <div class="statistic">
+            <span id="borders-total" class="statistic-value">—</span>
+            <span class="statistic-label">Borders crossed</span>
+          </div>
+          <div class="statistic">
+            <span class="statistic-value distance-statistic-value">
+              <span id="distance-km-total">— km</span>
+              <span id="distance-miles-total">— mi</span>
+            </span>
+            <span class="statistic-label">Approx. distance traveled</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="map-section" aria-labelledby="map-heading">
+        <div class="section-heading map-section-heading">
+          <div>
+            <p class="eyebrow">Pin by pin</p>
+            <h2 id="map-heading">Explore our adventures</h2>
+          </div>
+          <p id="status" class="status" aria-live="polite">Loading trips…</p>
+        </div>
+
+        <form id="filters" class="filters" aria-label="Map filters">
+          <label class="filter-field">
+            <span>Year</span>
+            <select id="year-filter" name="year"><option value="">All</option></select>
+          </label>
+          <label class="filter-field">
+            <span>Country</span>
+            <select id="country-filter" name="country"><option value="">All</option></select>
+          </label>
+          <label class="filter-field">
+            <span>Category</span>
+            <select id="category-filter" name="category"><option value="">All</option></select>
+          </label>
+          <label class="filter-field">
+            <span>Travel mode</span>
+            <select id="travel-mode-filter" name="travelMode"><option value="">All</option></select>
+          </label>
+          <fieldset class="marker-style">
+            <legend>Marker style</legend>
+            <label><input type="radio" name="markerStyle" value="standard" checked><span>Standard pins</span></label>
+            <label><input type="radio" name="markerStyle" value="category"><span>Category symbols</span></label>
+          </fieldset>
+          <button id="reset-filters" class="reset-filters" type="button">Reset filters</button>
+          <div id="category-legend" class="category-legend" hidden>
+            <span class="category-legend-title">Category symbols</span>
+            <div id="category-legend-items" class="category-legend-items"></div>
+          </div>
+        </form>
+
+        <div class="map-layout">
+          <aside id="trips-sidebar" class="trips-sidebar" aria-labelledby="trips-heading">
+            <div class="trips-sidebar-header">
+              <h3 id="trips-heading">Trips</h3>
+              <div class="trips-sidebar-actions">
+                <button id="clear-trip-selection" class="clear-trip-selection" type="button" hidden>Clear selection</button>
+                <button id="trips-sidebar-toggle" class="trips-sidebar-toggle" type="button" aria-controls="trips-list" aria-expanded="true" aria-label="Collapse trips sidebar">
+                  <span class="trips-toggle-label">Trips</span>
+                  <span class="trips-toggle-icon" aria-hidden="true">‹</span>
+                </button>
+              </div>
+            </div>
+            <ol id="trips-list" class="trips-list"></ol>
+          </aside>
+          <div id="map" aria-label="Interactive map of trip stops"></div>
+        </div>
+      </section>
+
+      <section id="journey-highlights" class="story-section highlights-section" aria-labelledby="highlights-heading" hidden>
+        <div class="section-heading highlights-heading">
+          <p class="eyebrow">Moments we will remember</p>
+          <h2 id="highlights-heading">Journey highlights</h2>
+        </div>
+        <div id="highlights-list" class="highlights-list"></div>
+      </section>
+
+      <section class="story-section timeline-section" aria-labelledby="timeline-heading">
+        <div class="section-heading">
+          <p class="eyebrow">From the beginning</p>
+          <h2 id="timeline-heading">Journey timeline</h2>
+        </div>
+        <div id="journey-timeline" class="journey-timeline"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="eyebrow">There is always more to see</p>
+      <p>Adventure continues...</p>
+    </footer>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+    <script src="app.js?v=public-data-v1"></script>
+  </body>
+</html>
