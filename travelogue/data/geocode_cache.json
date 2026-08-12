@@ -3,6 +3,10 @@
     "latitude": 46.531056,
     "longitude": 11.6247091
   },
+  "Amsterdam, Netherlands": {
+    "latitude": 52.3730796,
+    "longitude": 4.8924534
+  },
   "Annecy, France": {
     "latitude": 45.8992348,
     "longitude": 6.1288847
@@ -118,6 +122,10 @@
   "Milan, Italy": {
     "latitude": 45.4641943,
     "longitude": 9.1896346
+  },
+  "Nederhorst den Berg, Netherlands": {
+    "latitude": 52.2638961,
+    "longitude": 5.0452103
   },
   "Neuschwanstein Castle, Germany": {
     "latitude": 47.5575522,

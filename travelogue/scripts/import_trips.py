@@ -275,11 +275,13 @@ def build_trip(
         "favorite": boolean_value(row.get("Favorite")),
         "public": boolean_value(row.get("Public")),
         "summary": text_value(row.get("Summary")),
+        "public_summary": text_value(row.get("Public Summary")) or None,
         "estimated_distance_km": round(estimated_distance_km, 1),
         "estimated_distance_miles": round(estimated_distance_km * KM_TO_MILES, 1),
         "highlight": boolean_value(row.get("Highlight")),
         "highlight_title": text_value(row.get("Highlight Title")),
         "highlight_note": text_value(row.get("Highlight Note")),
+        "public_highlight_note": text_value(row.get("Public Highlight Note")) or None,
         # The workbook currently labels this column "Photo"; retain support for
         # the more explicit name in case the sheet is updated later.
         "highlight_photo": processed_photo_path(

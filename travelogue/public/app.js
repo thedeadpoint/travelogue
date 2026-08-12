@@ -48,18 +48,6 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
 }).addTo(map);
 
-function countTravelDays(startDate, endDate) {
-  const millisecondsPerDay = 24 * 60 * 60 * 1000;
-  const start = new Date(`${startDate}T00:00:00Z`);
-  const end = new Date(`${endDate}T00:00:00Z`);
-
-  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) {
-    return 0;
-  }
-
-  return Math.floor((end - start) / millisecondsPerDay) + 1;
-}
-
 function countryFromStopName(stopName) {
   const parts = stopName.split(",");
   return parts.length > 1 ? parts.at(-1).trim() : "";
@@ -230,7 +218,7 @@ function updateStatistics(trips) {
 
   for (const trip of trips) {
     stops += trip.stops.length;
-    travelDays += countTravelDays(trip.start_date, trip.end_date);
+    travelDays += Number(trip.travel_days) || 0;
     bordersCrossed += Number(trip.borders_crossed) || 0;
     estimatedDistanceKm += Number(trip.estimated_distance_km) || 0;
     estimatedDistanceMiles += Number(trip.estimated_distance_miles) || 0;
@@ -264,8 +252,8 @@ function addPopupContent(marker, trip, stop) {
 
   const details = [
     ["Stop", stop.name],
-    ["Start date", trip.start_date],
-    ["End date", trip.end_date],
+    ["Date", tripMonthYear(trip.start_date)],
+    ["Travel days", trip.travel_days],
     ["Travel mode", trip.travel_mode],
     ["Category", trip.category],
   ];
@@ -622,7 +610,11 @@ async function loadTrips() {
       throw new Error("Could not load trip data.");
     }
 
-    allTrips = await response.json();
+    const publicTrips = await response.json();
+    allTrips = publicTrips.map((trip) => ({
+      ...trip,
+      start_date: `${trip.year}-${String(trip.month).padStart(2, "0")}-01`,
+    }));
     populateFilters(allTrips);
     renderJourneyHighlights(allTrips);
     renderFilteredTrips();
