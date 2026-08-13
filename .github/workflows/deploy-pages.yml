@@ -31,7 +31,7 @@ jobs:
       - name: Upload sanitized public site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./travelogue/public
 
       - name: Deploy GitHub Pages
         id: deployment
