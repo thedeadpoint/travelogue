@@ -13,6 +13,7 @@ PROJECT_DIR = Path(__file__).resolve().parent.parent
 SOURCE_TRIPS_PATH = PROJECT_DIR / "output" / "trips.json"
 WEBSITE_DIR = PROJECT_DIR / "website"
 PROCESSED_PHOTOS_DIR = PROJECT_DIR / "photos" / "processed"
+SOCIAL_HERO_PATH = PROJECT_DIR / "social" / "hero-card.png"
 PUBLIC_DIR = PROJECT_DIR / "public"
 PRIVATE_TRIPS_FETCH = 'fetch("../output/trips.json")'
 PUBLIC_TRIPS_FETCH = 'fetch("./trips.json", { cache: "no-store" })'
@@ -149,6 +150,12 @@ def main() -> None:
         if not photo_path.is_file():
             raise FileNotFoundError(f"Referenced public photo not found: {photo_path}")
         shutil.copy2(photo_path, public_photos_dir / photo_name)
+
+    if not SOCIAL_HERO_PATH.is_file():
+        raise FileNotFoundError(f"Approved social image not found: {SOCIAL_HERO_PATH}")
+    public_social_dir = PUBLIC_DIR / "social"
+    public_social_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(SOCIAL_HERO_PATH, public_social_dir / SOCIAL_HERO_PATH.name)
 
     (PUBLIC_DIR / "trips.json").write_text(
         json.dumps(public_trips, indent=2, ensure_ascii=False) + "\n",
